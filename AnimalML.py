@@ -26,6 +26,7 @@ for i in range(len(train_path)):
     for filename in os.listdir(path):
         filepath = os.path.join(path, filename)
         image = Image.open(filepath)
+        image = image.resize((256,256))
         train_images.append(np.array(image))
         train_labels.append(i)
 
@@ -36,6 +37,7 @@ for i in range(len(val_path)):
     for filename in os.listdir(path):
         filepath = os.path.join(path, filename)
         image = Image.open(filepath)
+        image = image.resize((256,256))
         val_images.append(np.array(image))
         val_labels.append(i)
         
@@ -53,7 +55,7 @@ val_labels = keras.utils.to_categorical(val_labels, num_classes=len(labels))
 train_images, test_images, train_labels, test_labels = train_test_split(train_images, train_labels, test_size=0.2, random_state=42)
 
 model = keras.Sequential([
-    layers.Conv2D(32, (3, 3), activation='relu', input_shape=(200, 200, 3)),
+    layers.Conv2D(32, (3, 3), activation='relu', input_shape=(256, 256, 3)),
     layers.MaxPooling2D((2, 2)),
     layers.Conv2D(64, (3, 3), activation='relu'),
     layers.MaxPooling2D((2, 2)),
@@ -61,6 +63,8 @@ model = keras.Sequential([
     layers.MaxPooling2D((2, 2)),
     layers.Flatten(),
     layers.Dense(128, activation='relu'),
+    layers.LeakyReLU(alpha=0.1),
+    layers.Dropout(0.5), 
     layers.Dense(len(labels), activation='softmax')
 ])
 
@@ -69,14 +73,17 @@ model.compile(optimizer='adam',
               loss='categorical_crossentropy',
               metrics=['accuracy'])
 
-# Valuta il modello sui dati di test
+# Addestro il modello utilizzando i dati di addestramento
+model.fit(train_images, train_labels, epochs=10, validation_data=(val_images, val_labels))
+
+# Valuto il modello sui dati di test
 test_loss, test_acc = model.evaluate(test_images, test_labels, verbose=2)
 print('Test accuracy:', test_acc)
 
-# Fai predizioni su un'immagine
-image_path = "C:\Users\Tommaso\Documents\Supervised Learning Project\AnimalML\ImagePrediction\flickr_dog_000111.jpg"
+# Faccio predizione su un'immagine
+image_path = "C:\\Lavori\\repos-AnimalML\\AnimalML\\ImagePrediction\\flickr_dog_000111.jpg"
 image = Image.open(image_path)
-image = np.array(image.resize((200, 200)))
+image = np.array(image.resize((256, 256)))
 image = image.astype('float32') / 255
 prediction = model.predict(np.array([image]))
 print("Prediction: ", labels[np.argmax(prediction)])
