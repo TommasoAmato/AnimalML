@@ -18,6 +18,12 @@ Puoi installare le librerie utilizzando il seguente comando:
 ```bash
 pip install tensorflow keras numpy pandas pillow scikit-learn
 ```
+oppure eseguire il seguente comando (dopo essersi posizionati nella cartella del sorgente):
+
+```bash
+pip install -r requirements.txt
+```
+
 ## Dataset
 
 Il dataset di immagini di animali può essere scaricato dal seguente
