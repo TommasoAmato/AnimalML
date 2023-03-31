@@ -17,7 +17,7 @@ Puoi installare le librerie utilizzando il seguente comando:
 
 ```bash
 pip install tensorflow keras numpy pandas pillow scikit-learn
-
+```
 ## Dataset
 
 Il dataset di immagini di animali può essere scaricato dal seguente link: [link al dataset](https://www.kaggle.com/datasets/andrewmvd/animal-faces). Il dataset contiene 3 categorie di animali: gatti, cani e animali selvatici, ed è diviso in due cartelle: train e val.
@@ -29,4 +29,5 @@ Il modello di rete neurale convoluzionale (CNN) è stato addestrato utilizzando 
 Puoi addestrare il modello eseguendo il seguente comando:
 
 ```bash
-python AnimalML.py --train_data_path /path/to/train_data --val_data_path /path/to/val_data --num_classes 3 --epochs 10 --batch_size 32 --output_model_path /path/to/output/model
+python train.py --train_data_path /path/to/train_data --val_data_path /path/to/val_data --num_classes 3 --epochs 10 --batch_size 32 --output_model_path /path/to/output/model
+```
