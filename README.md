@@ -21,7 +21,7 @@ pip install tensorflow keras numpy pandas pillow scikit-learn
 ## Dataset
 
 Il dataset di immagini di animali può essere scaricato dal seguente
-[link](https://www.kaggle.com/datasets/andrewmvd/animal-faces){:target="_blank"}. Il dataset contiene 3 categorie di animali: gatti, cani e animali selvatici, ed è diviso in due cartelle: train e val.
+[link](https://www.kaggle.com/datasets/andrewmvd/animal-faces). Il dataset contiene 3 categorie di animali: gatti, cani e animali selvatici, ed è diviso in due cartelle: train e val.
 
 ## Addestramento del modello
 
