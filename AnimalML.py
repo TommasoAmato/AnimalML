@@ -76,5 +76,13 @@ model.compile(optimizer='adam',
 test_loss, test_acc = model.evaluate(test_images, test_labels, verbose=2)
 print('Test accuracy:', test_acc)
 
+# Fai predizioni su un'immagine
+image_path = "path/to/image.jpg"
+image = Image.open(image_path)
+image = np.array(image.resize((200, 200)))
+image = image.astype('float32') / 255
+prediction = model.predict(np.array([image]))
+print("Prediction: ", labels[np.argmax(prediction)])
+
 
 
