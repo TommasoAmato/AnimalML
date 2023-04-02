@@ -13,7 +13,7 @@ Per eseguire il progetto, è necessario installare le seguenti librerie Python:
 - Pillow
 - Scikit-learn
 
-Puoi installare le librerie utilizzando il seguente comando:
+Si possono installare le librerie utilizzando il seguente comando:
 
 ```bash
 pip install tensorflow keras numpy pandas pillow scikit-learn

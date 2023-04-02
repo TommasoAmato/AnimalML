@@ -52,8 +52,10 @@ val_labels = np.array(val_labels)
 train_labels = keras.utils.to_categorical(train_labels, num_classes=len(labels))
 val_labels = keras.utils.to_categorical(val_labels, num_classes=len(labels))
 
+#divido i dati di addestramento in un due sottoinsiemi, uno di train e uno di test
 train_images, test_images, train_labels, test_labels = train_test_split(train_images, train_labels, test_size=0.2, random_state=42)
 
+#definisco la rete CNN
 model = keras.Sequential([
     layers.Conv2D(32, (3, 3), activation='relu', input_shape=(256, 256, 3)),
     layers.MaxPooling2D((2, 2)),
@@ -68,7 +70,7 @@ model = keras.Sequential([
     layers.Dense(len(labels), activation='softmax')
 ])
 
-
+#definisco la fase di compilazione del modello
 model.compile(optimizer='adam',
               loss='categorical_crossentropy',
               metrics=['accuracy'])
