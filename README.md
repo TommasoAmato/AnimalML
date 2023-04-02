@@ -35,8 +35,8 @@ Il modello di rete neurale convoluzionale (CNN) è stato addestrato utilizzando 
 
 ## Valutazione del modello
 
-Dopo aver addestrato il modello, puoi valutare le sue prestazioni utilizzando i dati di test. Il file AnimalML.py valuta il modello sui dati di test e stampa l'accuracy del modello.
+Dopo aver addestrato il modello, si possono valutare le sue prestazioni utilizzando i dati di test. Il file AnimalML.py valuta il modello sui dati di test e stampa l'accuracy del modello.
 
 ## Predizione su nuove immagini
 
-Puoi utilizzare il modello addestrato per fare predizioni su nuove immagini cambiando il percorso all'interno del file AnimalML.py
+Si può utilizzare il modello addestrato per fare predizioni su nuove immagini cambiando il percorso all'interno del file AnimalML.py
